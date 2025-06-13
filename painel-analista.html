@@ -76,22 +76,29 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="linkVideo">Link do Vídeo: <span style="color: red">*</span></label></label>
-          <input type="url" id="linkVideo" name="linkVideo" placeholder="Cole aqui o link do Google Drive, YouTube etc" required>
+          <label for="linkVideo">Área para anexar video/imagem <span style="color: red">*</span></label></label>
+          <input type="file" name="arquivo" id="arquivo" accept="image/*,video/*" required><br><br>
+          <input type="hidden" id="linkVideo" name="linkVideo">
         </div>
         <button type="submit"><strong>Concluir Relatório</strong></button>
       </form>
     </section>
   </div>
+  <div id="popupEnvioArquivo" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background: white; padding: 30px; border-radius: 10px; text-align: center; font-size: 18px; font-weight: bold;">
+    ⏳ Enviando arquivo, por favor aguarde...
+  </div>
+</div>
 
   <footer>
     <p style="text-align: center">&copy; 2025 Sistema de Monitoramento. Todos os direitos reservados.</p>
    <p style="text-align: center">&spades; v29052025 - TARDE</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="upload.js"></script>
   <script src="Auth.js"></script>
+  <script src="script.js"></script>
+
   
-</script>
 </body>
 </html>
