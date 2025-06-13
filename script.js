@@ -3,39 +3,43 @@ const googleScriptURL = "https://script.google.com/macros/s/AKfycbwRNIOeaeHRVukK
 
 
 // Envio do relatório
+async function enviarRelatorio() {
+  const form = document.getElementById("formRelatorio");
+  const formData = new FormData(form);
+
+  try {
+    const res = await fetch(googleScriptURL, {
+  method: "POST",
+  body: formData
+});
+
+    const json = await res.json();
+
+    if (json.mensagem) {
+      alert(json.mensagem);
+      form.reset();
+      // Opcional: limpar campo linkVideo e arquivo
+      document.getElementById('linkVideo').value = "";
+      document.getElementById('arquivo').value = "";
+    } else {
+      alert("Erro ao enviar relatório.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Erro ao enviar relatório.");
+  }
+}
 // ========== ENVIO DO RELATÓRIO (somente se existir o formulário no DOM) ==========
 if (document.getElementById('formRelatorio')) {
   document.getElementById('formRelatorio').addEventListener('submit', e => {
     e.preventDefault();
 
-    const dados = {
-      analista: document.getElementById('analista').value,
-      dataEvento: document.getElementById('dataEvento').value,
-      local: document.getElementById('local').value,
-      descricao: document.getElementById('descricao').value,
-      observacao: document.getElementById('observacao').value,
-      criticidade: document.getElementById('criticidade').value,
-      linkVideo: document.getElementById('linkVideo').value,
-      status: "Pendente"
+        enviarRelatorio()
+    
+      ;});
     };
 
-    fetch(googleScriptURL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ acao: "novoRelatorio", dados }) // <- envia como esperado
-    })
-    .then(() => {
-      alert("Relatório enviado com sucesso!");
-      e.target.reset(); // limpa o formulário
-      carregarRelatorios?.(); // só chama se existir
-    })
-    .catch((error) => {
-      console.error("Erro ao enviar relatório:", error);
-      alert("Erro ao enviar relatório.");
-    });
-  });
-}
+    
 
 
 // ================== INICIALIZAÇÃO ==================
