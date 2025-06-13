@@ -1,4 +1,4 @@
-const googleScriptURL = "https://script.google.com/macros/s/AKfycbzfa_oVSCC3li5jRT8LJmmS59FJzmOxHCa66z_zCI8zPeJDIs2elPHrWMtHm6XQQxBpmw/exec";
+const googleScriptURL = "https://script.google.com/macros/s/AKfycbwRNIOeaeHRVukKbhdSICKYpShhCOO7q_RDM7aeSRyEcR-EHhyWHdtYA0S0-s5X4OEtEA/exec";
 
 
 
@@ -15,7 +15,7 @@ if (document.getElementById('formRelatorio')) {
       descricao: document.getElementById('descricao').value,
       observacao: document.getElementById('observacao').value,
       criticidade: document.getElementById('criticidade').value,
-      linkVideo:   document.getElementById('linkVideo').value || '',
+      linkVideo: document.getElementById('linkVideo').value,
       status: "Pendente"
     };
 
