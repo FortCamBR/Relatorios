@@ -30,7 +30,7 @@ document.getElementById('btnConcluirRelatorio')?.addEventListener('click', async
       formData.append("mimeType", file.type);
       formData.append("base64", base64Data);
 
-      const uploadRes = await fetch("https://script.google.com/macros/s/AKfycbyvu5h874SwkCaXc_Drji5JO_ukq0c3wlLnSibON6sV_SZeA2PYOwjE1lP41NK-BYIVgg/exec", {
+      const uploadRes = await fetch("https://script.google.com/macros/s/AKfycbxgOLqJTW40niiCWWsu6nipAcL5n16LzYVDizuYi872Vcxd3BLnZkmF9j3jgUouBDrdIQ/exec", {
         method: "POST",
         body: formData
       });
