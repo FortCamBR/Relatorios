@@ -6,7 +6,7 @@ function esconderPopupEnvio() {
   document.getElementById("popupEnvioArquivo").style.display = "none";
 }
 
-document.getElementById('formRelatorio')?.addEventListener('submit', async e => {
+document.getElementById('btnConcluirRelatorio')?.addEventListener('click', async e => {
   e.preventDefault();
 
   const fileInput = document.getElementById('arquivo');
@@ -38,12 +38,10 @@ document.getElementById('formRelatorio')?.addEventListener('submit', async e => 
       const result = await uploadRes.json();
 
       if (result.link) {
-        // coloca o link no campo oculto do formulário
         document.getElementById('linkVideo').value = result.link;
-
-        // agora envia o restante do relatório para a planilha
+        document.getElementById('btnEnviarFormulario').style.display = 'inline-block';
         esconderPopupEnvio();
-        enviarRelatorio();
+        alert("Arquivo enviado com sucesso. Agora clique em 'Enviar Formulário' para concluir.");
       } else {
         esconderPopupEnvio();
         alert("Erro ao obter o link do vídeo.");
