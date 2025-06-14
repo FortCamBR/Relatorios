@@ -7,6 +7,12 @@ async function enviarRelatorio() {
   const form = document.getElementById("formRelatorio");
   const formData = new FormData(form);
 
+  const link = document.getElementById('linkVideo').value;
+if (!link) {
+  alert("Você precisa concluir o relatório e anexar o vídeo antes de enviar.");
+  return;
+}
+
   try {
     const res = await fetch(googleScriptURL, {
   method: "POST",

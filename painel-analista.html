@@ -80,7 +80,12 @@
           <input type="file" name="arquivo" id="arquivo" accept="image/*,video/*" required><br><br>
           <input type="hidden" id="linkVideo" name="linkVideo">
         </div>
-        <button type="submit"><strong>Concluir Relatório</strong></button>
+        <!-- Botão para concluir relatório e subir o vídeo -->
+<button type="button" id="btnConcluirRelatorio"><strong>Concluir Relatório</strong></button>
+
+<!-- Botão que aparece só após upload com sucesso -->
+<button type="submit" id="btnEnviarFormulario" style="display: none;"><strong>Enviar Formulário</strong></button>
+
       </form>
     </section>
   </div>
